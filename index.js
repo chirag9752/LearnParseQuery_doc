@@ -46,8 +46,6 @@ Parse.serverURL = 'https://parseapi.back4app.com/'
 // person2.save()
 
 
-
-
 // class 2 
 
 
@@ -124,7 +122,9 @@ Parse.serverURL = 'https://parseapi.back4app.com/'
 //             person.set('name' , `babu${i}`)
 //             person.set('age' , 22)
 //             person.set('livingCity' , 'chennai')
-//             person.add('skills' , `cycling day${i}`)
+//             person.add('skills' , `cycling day${i}`)   
+            //    or
+            //  persona.set("skills" , ["cycling day${i}"])   // that's also work same
 //             person.save()
 //         }
 
@@ -280,7 +280,6 @@ Parse.serverURL = 'https://parseapi.back4app.com/'
 
 
 // class 8
-
 
 // one to many relation
 
@@ -459,9 +458,128 @@ Parse.serverURL = 'https://parseapi.back4app.com/'
 
 //     if (user){
           
+//         // let myACL = new Parse.ACL()
+//         // myACL.setPublicReadAccess(true);
+//         // myACL.setPublicReadAccess(true);
+        
+        
+//         // let myRole = new Parse.Role('PublicReadWrite' , myACL)
+
+//         // myRole.save();
+        
+
+//         let rolesQuery = new Parse.Query(Parse.Role)
+//         rolesQuery.equalTo('name' , 'PublicReadWrite')
+        
+
+//         let role = await rolesQuery.first()
+
+//         if(role)
+//         {
+//             role.getUsers().add(user)
+//         }
+
+         
 
 //     }
 
 // }
 
 // run()
+
+
+
+// class 13
+
+
+// async function run() {
+
+//     let user = await Parse.User.logIn("Chirag" , "Chirag@2001");
+
+//     if(user)
+//     {
+//         let Note = Parse.Object.extend('Note');
+//         let noteQuery = new Parse.Query(Note);
+
+//         let result = await noteQuery.find({sessionToken : user.get('sessionToken')});
+
+//         Parse.User.enableUnsafeCurrentUser();
+
+//         for (let i = 0 ; i < result.length ; i++)
+//         {
+//            console.log('Content :' + result[i].get('content'))
+//         }
+
+//         // user = Parse.User.logOut();
+        
+//         // console.log("User logged out")
+
+//         // result = await noteQuery.find()
+        
+//         // for(let i = 0 ; i < result.length ; i++)
+//         // {
+//         //     console.log('Content:' + result[i].get('content'));
+//         // }
+
+
+
+//        await Parse.User.requestPasswordReset('chiragagrawal61230@gmail.com');            // Threw this email sent with instructions to reset the password
+        
+
+//     }
+// }
+
+// run();
+
+
+
+
+// class 14
+
+
+// querring arrray and strings 
+
+
+// async function run() {
+
+//     let Person = Parse.Object.extend('Person')
+
+//     let personQuery = new Parse.Query(Person);
+
+//     // personQuery.equalTo('skills' , 'swiming');
+
+//     // personQuery.containsAll('skills' , [ "coding" ,"developing" ]);            // check all the containts
+    
+//     // personQuery.startsWith('name' , 'ba')
+
+//     // personQuery.endsWith('name' , 'a')
+
+
+//     personQuery.contains('name' , 'bu')       // if contain anything   
+
+
+//     let result = await personQuery.find();
+    
+//     for(let i=0 ; i<result.length ; i++)
+//     {
+//         let thisObject = result[i];
+
+//         console.log(thisObject.get('name'))
+//     }
+// }
+
+// run();
+
+
+
+// class 15
+
+// reterieve data from related object 
+
+
+// async function run() {
+
+//     let Person = Parse.Object.extend('Person');
+    
+    
+// }
